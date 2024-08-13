@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://icds-docs.readthedocs.io/en/latest/01_Overview/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Overview - ICDS User Guide</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Overview";
+        var mkdocs_page_input_path = "01_Overview.md";
+        var mkdocs_page_url = "/en/latest/01_Overview/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]--> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="..">
+          <img src="../images/PSU_ICDS_logo_blue.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Roar Collab User Guide</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Overview</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#about-icds">About ICDS</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#high-performance-computing-overview">High-Performance Computing Overview</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#roar-collab-user-flow-diagram">Roar Collab User Flow Diagram</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#roar-collab-system-specs">Roar Collab System Specs</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#slurms-sinfo-command">Slurm's sinfo Command</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#best-practices">Best Practices</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#policies">Policies</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../02_Connecting/">Connecting</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../03_SubmittingJobs/">Submitting Jobs</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../04_HandlingData/">Handling Data</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../05_UsingSoftware/">Using Software</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">ICDS User Guide</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Overview</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="overview">Overview</h1>
+<h2 id="about-icds">About ICDS</h2>
+<p>The Institute for Computational and Data Sciences (ICDS) is one of seven 
+interdisciplinary research institutes within Penn State's Office of the Senior 
+Vice President for Research. The mission of ICDS is to build capacity to solve 
+problems of scientific and societal importance through cyber-enabled research. 
+ICDS enables and supports the diverse computational and data science research 
+taking place throughout Penn State. Users come from all corners of the 
+university and conduct interdisciplinary research using the high-performance 
+computing (HPC) systems delivered and supported by ICDS.</p>
+<h2 id="high-performance-computing-overview">High-Performance Computing Overview</h2>
+<p>High-performance computing (HPC) is the use of powerful computing systems that 
+are capable of performing complex tasks and solving large-scale computational 
+problems at significantly higher speeds and with greater efficiency than 
+conventional computing systems. These tasks often involve processing and 
+analyzing massive datasets, conducting simulations, modeling complex phenomena, 
+and executing advanced algorithms. The increase in computational performance is 
+a result of the aggregation of computing resources and utilizing those 
+resources in concert to perform the computational process. HPC systems consist 
+of many compute nodes that communicate over fast interconnections. Each node 
+contains many high-speed processors and its own memory. Typically, the nodes 
+also are connected to a shared filesystem. The seamless integration of the 
+compute, storage, and networking components at a large scale is the fundamental 
+essence of HPC. HPC plays a critical role in pushing the boundaries of academic 
+research and enabling breakthroughs in science, engineering, and technology 
+across diverse fields of study.</p>
+<h2 id="roar-collab-user-flow-diagram">Roar Collab User Flow Diagram</h2>
+<p><img alt="RC User Flow Diagram" src="../images/RCUserFlowDiagram.png" /></p>
+<h2 id="roar-collab-system-specs">Roar Collab System Specs</h2>
+<p>Roar Collab (RC) is the flagship computing cluster for Penn State researchers. 
+Designed with collaboration in mind, the RC environment allows for more 
+frequent software updates and hardware upgrades to keep pace with researchers’ 
+changing needs. RC utilizes the Red Hat Enterprise Linux (RHEL) 8 operating 
+system to provide users with access to compute resources, file storage, and 
+software. RC is a heterogeneous computing cluster comprised of different types 
+of compute nodes, each of which can be categorized as a Basic, Standard,
+High-Memory, GPU, or Interactive node.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Node Type<br>(Designation)</th>
+<th style="text-align: center;">Core/Memory<br>Configurations</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">Basic<br>(<code>bc</code>)</td>
+<td style="text-align: center;">24 cores, 126 GB<br>64 cores, 255 GB</td>
+<td>Connected via Ethernet<br>Configured to offer about 4 GB of memory per core<br>Best used for single-node tasks</td>
+</tr>
+<tr>
+<td style="text-align: center;">Standard<br>(<code>sc</code>)</td>
+<td style="text-align: center;">24 cores, 258 GB<br>48 cores, 380 GB<br>48 cores, 512 GB</td>
+<td>Connected both via Infiniband and Ethernet<br>Infiniband connections provide higher bandwidth inter-node communication<br>Configured to offer about 10 GB of memory per core<br>Good for single-node tasks and also multi-node tasks</td>
+</tr>
+<tr>
+<td style="text-align: center;">High-Memory<br>(<code>hc</code>)</td>
+<td style="text-align: center;">48 cores, 1 TB<br>56 cores, 1 TB</td>
+<td>Connected via Ethernet<br>Configured to offer about 25 GB of memory per core<br>Best for memory-intensive tasks</td>
+</tr>
+<tr>
+<td style="text-align: center;">GPU<br>(<code>gc</code>)</td>
+<td style="text-align: center;">28 cores, 256 GB<br>28 cores, 512 GB<br>48 cores, 380 GB</td>
+<td>Feature GPUs that can be accessed either individually or collectively<br>Both A100 and P100 GPUs are available</td>
+</tr>
+<tr>
+<td style="text-align: center;">Interactive<br>(<code>ic</code>)</td>
+<td style="text-align: center;">36 cores, 500 GB</td>
+<td>Feature GPUs that are specifically configured for GPU-accelerated graphics<br>Best for running graphical software that requires GPU-accelerated graphics</td>
+</tr>
+</tbody>
+</table>
+<!---
+<table>
+    <thead>
+        <tr>
+            <th>Node Type</th>
+            <th>Processor Generation</th>
+            <th>Processor Type</th>
+            <th>Cores</th>
+            <th>Memory</th>
+            <th>Allocation Memory per Core</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan=2>Basic</td>
+            <td>broadwell</td>
+            <td>Intel(R) Xeon(R) CPU E5-2650 v4 @ 2.20GHz</td>
+            <td>24</td>
+            <td>128 GB</td>
+            <td>4 GB</td>
+        </tr>
+        <tr>
+            <td>sapphirerapids</td>
+            <td>Intel(R) Xeon(R) Gold 6430 @ 2.1GHz</td>
+            <td>64</td>
+            <td>256 GB</td>
+            <td>4 GB</td>
+        </tr>
+        <tr>
+            <td rowspan=3>Standard</td>
+            <td>haswell</td>
+            <td>Intel Xeon E5-2680v3 @ 2.5GHz</td>
+            <td>24</td>
+            <td>256 GB</td>
+            <td>10 GB</td>
+        </tr>
+        <tr>
+            <td>cascadelake</td>
+            <td>Intel(R) Xeon(R) Gold 6248R CPU @ 3.00GHz</td>
+            <td>48</td>
+            <td>380 GB</td>
+            <td>10 GB</td>
+        </tr>
+        <tr>
+            <td>icelake</td>
+            <td>Intel(R) Xeon(R) Gold 6342 CPU @ 2.80GHz</td>
+            <td>48</td>
+            <td>512 GB</td>
+            <td>10 GB</td>
+        </tr>
+        <tr>
+            <td rowspan=2>High-Memory</td>
+            <td>broadwell</td>
+            <td>Intel(R) Xeon(R) CPU E7-4830 v4 @ 2.00GHz</td>
+            <td>56</td>
+            <td>1 TB</td>
+            <td>25 GB</td>
+        </tr>
+        <tr>
+            <td>icelake</td>
+            <td>Intel(R) Xeon(R) Gold 6342 CPU @ 2.80GHz</td>
+            <td>48</td>
+            <td>1 TB</td>
+            <td>25 GB</td>
+        </tr>
+        <tr>
+            <td rowspan=3>GPU</td>
+            <td>broadwell</td>
+            <td>CPU info + GPU info</td>
+            <td>24</td>
+            <td>256 GB</td>
+            <td>8 GB</td>
+        </tr>
+        <tr>
+            <td>broadwell</td>
+            <td>CPU info + GPU info</td>
+            <td>28</td>
+            <td>512 GB</td>
+            <td>8 GB</td>
+        </tr>
+        <tr>
+            <td>cascadelake</td>
+            <td>CPU info + GPU info</td>
+            <td>48</td>
+            <td>380 GB</td>
+            <td>8 GB</td>
+        </tr>
+    </tbody>
+</table>
+-->
+
+<h2 id="slurms-sinfo-command">Slurm's <code>sinfo</code> Command</h2>
+<p>RC is a heterogeneous computing cluster. To see the different node
+configurations on RC, use the following command:</p>
+<div class="highlight"><pre><span></span><code>sinfo --Format=features:40,nodelist:20,cpus:10,memory:10
+</code></pre></div>
+<p>This <code>sinfo</code> command displays not only the core and memory configuration of the 
+nodes, but it also indicates the processor generation associated with each 
+node. Furthermore, while connected to a specific node, the <code>lscpu</code> command 
+provides more detailed information on the specific processor type available on 
+the node. For nodes with GPU(s), the <code>nvidia-smi</code> command displays more 
+detailed information on the GPU(s) available on that node.</p>
+<p>Slurm's <a href="https://slurm.schedmd.com/sinfo.html">sinfo</a> 
+documentation page provides a detailed description of the function and options 
+of the <code>sinfo</code> command.</p>
+<h2 id="best-practices">Best Practices</h2>
+<p>Roar Collab is shared by many users, and a user's operating behavior can inadvertantly impact system functionality for other users. All users must follow a set of best practices which entail limiting activities that may impact the system for other users. Exercise good citizenship to ensure that your activity does not adversely impact the system and the RC research community.</p>
+<div class="admonition warning">
+<p class="admonition-title">Do Not Run Jobs on the Submit Nodes</p>
+<p>RC has a few login nodes that are shared among all users. Dozens, and sometimes hundreds, of users may be logged on at any one time accessing the file systems. Think of the submit nodes as a prep area, where users may edit and manage files, perform file management, initiate file transfers, submit new jobs, and track existing batch jobs. The submit nodes provide an interface to the system and to the computational resources.</p>
+<p>The compute nodes are where intensive computations may be performed and where research software may be utilized. All batch jobs and executables, as well as development and debugging sessions, must be run on the compute nodes. To access compute nodes on RC, either submit a batch job or request an interactive session. The <a href="../03_SubmittingJobs/">Submitting Jobs</a> section of the RC User Guide provides further details on requesting computational resources.</p>
+<p>A single user running computationally expensive or disk intensive tasks on a submit node negatively impacts performance for other users. Additionally, since the submit nodes are not configured for intensive computations, the computational performance of such processes is poor. Habitually running jobs on the submit nodes can potentially lead to account suspension.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Do Not Use Scratch as a Primary Storage Location</p>
+<p>Scratch serves as a temporary repository for compute output and is explicitly designed for short-term usage. Unlike other storage locations, scratch is not backed up. Files are subject to automatic removal if they are not accessed within a timeframe of 30 days. The <a href="../04_HandlingData/">Handling Data</a> section of the RC User Guide provides further details on storage options.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Make an Effort to Minimize Resource Requests</p>
+<p>The amount of time jobs are queued grows as the amount of requested resources increases. To minimize the amount of time a job is queued, minimize the amount of resources requested. It is best to run small test cases to verify that the computational workflow runs successfully before scaling up the process to a large dataset. The <a href="../03_SubmittingJobs/">Submitting Jobs</a> section of the RC User Guide provides further details on requesting computational resources.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Remain Cognizant of Storage Quotas</p>
+<p>All available storage locations on RC have associated quotas. If the usage of a storage location approaches these quotas, software may not functional nominally and produce cryptic error messages. The <a href="../04_HandlingData/">Handling Data</a> section of the RC User Guide provides further details on checking storage usage relative to the quotas.</p>
+</div>
+<h2 id="policies">Policies</h2>
+<p>The policies regarding the use of RC can be found on the 
+<a href="https://www.icds.psu.edu/computing-services/roar-policies/">ICDS Policies</a> 
+page.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href=".." class="btn btn-neutral float-left" title="Roar Collab User Guide"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../02_Connecting/" class="btn btn-neutral float-right" title="Connecting">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../02_Connecting/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

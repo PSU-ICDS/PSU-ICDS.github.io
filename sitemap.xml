@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://icds-docs.readthedocs.io/en/latest/</loc>
+         <lastmod>2024-08-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://icds-docs.readthedocs.io/en/latest/01_Overview/</loc>
+         <lastmod>2024-08-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://icds-docs.readthedocs.io/en/latest/02_Connecting/</loc>
+         <lastmod>2024-08-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://icds-docs.readthedocs.io/en/latest/03_SubmittingJobs/</loc>
+         <lastmod>2024-08-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://icds-docs.readthedocs.io/en/latest/04_HandlingData/</loc>
+         <lastmod>2024-08-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://icds-docs.readthedocs.io/en/latest/05_UsingSoftware/</loc>
+         <lastmod>2024-08-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+</urlset>

@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://icds-docs.readthedocs.io/en/latest/04_HandlingData/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Handling Data - ICDS User Guide</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Handling Data";
+        var mkdocs_page_input_path = "04_HandlingData.md";
+        var mkdocs_page_url = "/en/latest/04_HandlingData/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]--> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="..">
+          <img src="../images/PSU_ICDS_logo_blue.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Roar Collab User Guide</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../01_Overview/">Overview</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../02_Connecting/">Connecting</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../03_SubmittingJobs/">Submitting Jobs</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Handling Data</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#available-filesystems-and-quotas">Available Filesystems and Quotas</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#storage-information">Storage Information</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#check-usage">Check Usage</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#managing-large-configuration-files">Managing Large Configuration Files</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#storage-allocations">Storage Allocations</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#user-managed-groups">User-Managed Groups</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#file-transfers">File Transfers</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#globus">Globus</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#files-tab-on-roar-collab-portal">Files Tab on Roar Collab Portal</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#scp">scp</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#sftp">sftp</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#rsync">rsync</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../05_UsingSoftware/">Using Software</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">ICDS User Guide</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Handling Data</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="handling-data">Handling Data</h1>
+<h2 id="available-filesystems-and-quotas">Available Filesystems and Quotas</h2>
+<p>Roar Collab (RC) offers several file storage options for users, each with their 
+own quotas and data retention policies. The multiple options are available for 
+users to optimize their workflows.</p>
+<h3 id="storage-information">Storage Information</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Storage</th>
+<th style="text-align: center;">Location</th>
+<th style="text-align: center;">Space Quota</th>
+<th style="text-align: center;">Files Quota</th>
+<th style="text-align: center;">Backup Policy</th>
+<th style="text-align: center;">Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">Home</td>
+<td style="text-align: center;">/storage/home</td>
+<td style="text-align: center;">16 GB</td>
+<td style="text-align: center;">500,000 files</td>
+<td style="text-align: center;">Daily snapshot</td>
+<td style="text-align: center;">Configuration files</td>
+</tr>
+<tr>
+<td style="text-align: center;">Work</td>
+<td style="text-align: center;">/storage/work</td>
+<td style="text-align: center;">128 GB</td>
+<td style="text-align: center;">1 million files</td>
+<td style="text-align: center;">Daily snapshot</td>
+<td style="text-align: center;">Primary user-level data</td>
+</tr>
+<tr>
+<td style="text-align: center;">Scratch</td>
+<td style="text-align: center;">/scratch</td>
+<td style="text-align: center;">None</td>
+<td style="text-align: center;">1 million files</td>
+<td style="text-align: center;">No Backup<br>Files purged after 30 days</td>
+<td style="text-align: center;">Temporary files</td>
+</tr>
+<tr>
+<td style="text-align: center;">Group</td>
+<td style="text-align: center;">/storage/group</td>
+<td style="text-align: center;">Specific to<br>allocation</td>
+<td style="text-align: center;">1 million files<br>per TB allocated</td>
+<td style="text-align: center;">Daily snapshot</td>
+<td style="text-align: center;">Primary shared data</td>
+</tr>
+</tbody>
+</table>
+<p>Home should primarily be used for configuration files and should not be used as 
+a primary storage location for data. Work should be used as the primary 
+personal data storage location. Scratch should be used for temporary files and 
+for reading and writing large data files.</p>
+<p>To provide a user with access to a paid group storage allocation, the owner of 
+the storage allocation should submit a request to <strong>icds@psu.edu</strong> to add the 
+user to their <code>&lt;owner&gt;_collab</code> group.</p>
+<h3 id="check-usage">Check Usage</h3>
+<p>To check storage usage against the storage quotas, run the following command on 
+RC:</p>
+<div class="highlight"><pre><span></span><code>$ check_storage_quotas
+</code></pre></div>
+<p>The ouputs generated by these scripts are not generated in real-time, but the 
+underlying quota information is updated several times per day. After removing 
+many files, for instance, the updates to the storage usage will not be 
+reflected in the outputs until the next update period.</p>
+<p>For a real-time look into the memory usage for a particular storage location, 
+navigate to the storage location and run the following command:</p>
+<div class="highlight"><pre><span></span><code>$ du -sch .[!.]* * | sort -h
+</code></pre></div>
+<p>For a real-time look into the number of files in a storage location, navigate 
+to the storage location and run the following command:</p>
+<div class="highlight"><pre><span></span><code>$ find . -type f | wc -l
+</code></pre></div>
+<p>A user can check the storage usage of an accessible group storage location by navigating to the group storage location and running the following command:</p>
+<div class="highlight"><pre><span></span><code>$ df -ui .
+</code></pre></div>
+<h3 id="managing-large-configuration-files">Managing Large Configuration Files</h3>
+<p>Home is the primary location for configuration files, and many software 
+packages will automatically place configuration files in this location. 
+Sometimes, these configuration files can grow in size such that the Home 
+directory approaches its storage quota limit. If this issue occurs, it is 
+simple to move the configuration files from Home to Work and place a link in 
+Home that points to the new location of the configuration files in Work.</p>
+<p>For instance, Anaconda stores its configuration files in <em>~/.conda</em> by default, 
+and this directory often grows to multiple GBs in size, consequently using a 
+significant portion of the Home directory's allocated memory. The <em>~/.conda</em> 
+directory can be moved to Work and can be replaced by a link in Home that 
+points to the new location. This can be carried out with the following 
+commands:</p>
+<div class="highlight"><pre><span></span><code>$ mv ~/.conda /storage/work/$(whoami)
+$ ln -s /storage/work/$(whoami)/.conda ~/.conda
+</code></pre></div>
+<h2 id="storage-allocations">Storage Allocations</h2>
+<p>A paid storage allocation provides access to a shareable group location for 
+active file storage. Active group storage is included with a paid compute 
+allocation, but additional storage space can be purchased separately as well. 
+Active storage is mounted on all compute resources and enables users to read, 
+write, and modify files stored there. For long-term storage of infrequently-
+used files that is separate from compute resources, archive storage is 
+available for purchase and is accessible via the 
+<a href="https://www.globus.org/">Globus</a> interface.</p>
+<p>Typically, access to group storage locations can be managed using the 
+<code>&lt;user&gt;_collab</code> group where the <code>&lt;user&gt;</code> is the user ID of the owner of the 
+group space. For users to be added or removed from <code>&lt;user&gt;_collab</code> groups, the 
+owner of that group must submit a request to <strong>icds@psu.edu</strong>.</p>
+<h2 id="user-managed-groups">User-Managed Groups</h2>
+<p>If the owner of a group space would like more control over the access groups or 
+would like to designate a group coordinator, then it is recommended that the 
+owner 
+<a href="https://pennstate.service-now.com/sp?id=kb_article_view&amp;sysparm_article=KB0011865&amp;sys_kb_id=81102ada87cedd10d7bf7485dabb35b0&amp;spa=1">create a User Managed Group (UMG)</a>. 
+The UMG allows a user to manage the group access list and group roles directly 
+through the User Managed Group functionality through 
+<a href="https://accounts.psu.edu/manage">Penn State Accounts Management</a>. 
+Select the following options and adhere to the following recommendations when 
+creating the UMG:</p>
+<div class="highlight"><pre><span></span><code>Group Function:     Functional
+Campus:             University Park
+Display Name:       icds.rc.&lt;umg_name&gt;
+                    e.g. icds.rc.abc1234_collab
+Email:              Not necessary for RC use
+Security:           Sync with Enterprise Active Directory is required
+</code></pre></div>
+<p>ICDS filters UMGs for display names that begin with <code>icds.rc.</code>, so any UMGs 
+created with this prefix will automatically appear within RC. It may take up to 
+15 minutes for a newly-created UMG to appear on RC. To verify that a UMG is 
+available on RC, run the following command on RC:</p>
+<div class="highlight"><pre><span></span><code>$ getent group icds.rc.&lt;umg_name&gt;
+</code></pre></div>
+<p>After a UMG is created, the owner can submit a request to <strong>icds@psu.edu</strong> to 
+associate this UMG with the <code>&lt;owner&gt;_collab</code> group. Once this association is 
+made, then the group owner has full dynamic control over the access and roles 
+of the <code>&lt;owner&gt;_collab</code> group by modifying the UMG membership. After this 
+single request to ICDS, the owner no longer has to submit requests to modify 
+group membership and instead can manage the group directly. Note that any user 
+added as a UMG member that <em>does not</em> have an active RC account will not have 
+access to RC or any data on RC until that user has an active RC account.</p>
+<h2 id="file-transfers">File Transfers</h2>
+<p>Globus is a web-based file transfer tool. With Globus, users can easily, reliably, and securely transfer data to and from RC. The recommended file transfer method for RC is <a href="https://www.globus.org/">Globus</a>. The Files tab on the <a href="https://rcportal.hpc.psu.edu/">RC Portal</a> is also very convenient for transferring files. For small-scale file transfers to/from RC, the submit nodes (hostname <strong>submit.hpc.psu.edu</strong>) can be used. When specifying a file location, it is best to use the full file path.</p>
+<h3 id="globus">Globus</h3>
+<p>It is recommended to use <a href="https://www.globus.org/">Globus</a> for file transfers, 
+especially for files that are multiple GBs in size or larger. Also, if issues 
+due to an unreliable connection arise, transferring via Globus may be a good 
+option. Globus is a file transfer tool that automates the activity of managing 
+file transfers, such as monitoring performance, retrying failed transfers, 
+recovering from faults automatically whenever possible, and reporting status.</p>
+<p>Globus endpoints must be installed on both the source and destination systems. 
+RC has Globus endpoints available.</p>
+<div class="highlight"><pre><span></span><code>RC Endpoint:
+PennState_ICDS_RC
+
+RC Archive Endpoint:
+Archive_PennState_ICDS
+</code></pre></div>
+<p>To transfer files with Globus, visit the 
+<a href="https://www.globus.org/">Globus website</a> and log in as a Penn State user with 
+your Penn State access account. Select the File Manager tab on the left side of 
+the Globus web interface and select the source and destination endpoints. The 
+endpoints may require an additional login. The files and locations for the 
+transfer can be selected graphically, and the transfer can be initiated by 
+selecting <em>Start</em> above the source endpoint file preview window. The transfer 
+will be handled by Globus, and typically, successful completion of the transfer 
+will generate an email to your Penn State email.</p>
+<p>Users can also download files from RC to their local device or upload files 
+directly from their local device to RC using simple web interface operations. 
+To download a file, right-click the file and select Download. To upload a file, 
+select Upload from the Pane 1 Menu on the right.</p>
+<p>Globus provides detailed instructions on the following topics:
+ - <a href="https://docs.globus.org/guides/tutorials/manage-files/transfer-files/">Log in and transfer files</a>
+ - <a href="https://docs.globus.org/globus-connect-personal/install/linux/">Install and configure Globus Connect for Linux</a>
+ - <a href="https://docs.globus.org/globus-connect-personal/install/mac/">Install and configure Globus Connect for MacOSX</a>
+ - <a href="https://docs.globus.org/globus-connect-personal/install/windows/">Install and configure Globus Connect for Windows</a></p>
+<h3 id="files-tab-on-roar-collab-portal">Files Tab on Roar Collab Portal</h3>
+<p>The Files tab on the RC Portal offers a very intuitive interface for file 
+management. Files can be moved, edited, uploaded, and downloaded with relative 
+ease using this utility. Users should limit the use of the RC Portal file 
+manager utility to dealing with small files only.</p>
+<h3 id="scp">scp</h3>
+<p>Users may use the <code>scp</code> command to transfer files to and from RC. It is 
+typically practical to zip files together when transferring many files at once. 
+In a terminal session, the <code>scp</code> command can be used to transfer files in the 
+following way:</p>
+<div class="highlight"><pre><span></span><code>$ scp [options] &lt;source-user-id&gt;@&lt;source-host&gt;[:&lt;file-location&gt;] &lt;destination-user-id&gt;@&lt;destination-host&gt;[:&lt;file-location&gt;]
+</code></pre></div>
+<p>Some examples will make the usage more clear. The two locations in this example 
+are the directory <strong>/home/abc</strong> on a local laptop device and the user scratch 
+space on RC. If a file named <em>local.file</em> in <strong>/home/abc</strong> is to be transferred 
+to a user's scratch space, the user should run the following command from a 
+terminal session on the local laptop:</p>
+<div class="highlight"><pre><span></span><code># Transfer to RC scratch space
+$ scp /home/abc/local.file &lt;userid&gt;@submit.hpc.psu.edu:/scratch/&lt;userid&gt;
+</code></pre></div>
+<p>Alternatively, if the user navigates to the <strong>/home/abc</strong> location on their 
+local laptop, the command can be slightly simplified to</p>
+<div class="highlight"><pre><span></span><code># Transfer to RC scratch space
+$ scp local.file &lt;userid&gt;@submit.hpc.psu.edu:/scratch/&lt;userid&gt;
+</code></pre></div>
+<p>If a directory named <em>datadir</em> located on the user's RC scratch space is to be 
+transferred to the local laptop's <strong>/home/abc</strong> directory, the user can run the 
+following from a terminal session on the local laptop:</p>
+<div class="highlight"><pre><span></span><code># Transfer from RC scratch space
+$ scp -r &lt;userid&gt;@submit.hpc.psu.edu:/scratch/&lt;userid&gt; /home/abc/
+</code></pre></div>
+<p>Note that since a directory is being transferred, the <code>-r</code> option must be used 
+for the <code>scp</code> command so both the directory and its contents are transferred. 
+If the user navigates the terminal to the <strong>/home/abc</strong> directory to conduct 
+the transfer, then the <strong>/home/abc/</strong> in the above commands can be replaced 
+with a single period <strong>.</strong> to denote the <em>current working directory</em>.</p>
+<div class="highlight"><pre><span></span><code># Transfer from RC scratch space
+$ scp -r &lt;userid&gt;@submit.hpc.psu.edu:/scratch/&lt;userid&gt; .
+</code></pre></div>
+<h3 id="sftp">sftp</h3>
+<p>The <code>sftp</code> command can also be used to transfer files and is more useful when 
+transferring multiple smaller files in a piecemeal fashion. This method allows 
+for interactive navigation on the remote connection. From a local device, an 
+<code>sftp</code> connection can be made with</p>
+<div class="highlight"><pre><span></span><code>$ sftp &lt;userid&gt;@&lt;remote-host&gt;[:&lt;location&gt;]
+</code></pre></div>
+<p>To spawn an <code>sftp</code> connection on RC, use</p>
+<div class="highlight"><pre><span></span><code>$ sftp &lt;userid&gt;@submit.hpc.psu.edu
+</code></pre></div>
+<p>After the <code>sftp</code> connection is made, navigational commands (i.e. <code>ls</code>, <code>cd</code>, 
+etc) are performed on the remote connection normally, while navigational 
+commands are performed on the local connection by appending the letter <strong>l</strong> 
+(lowercase L) to the commands (i.e. <code>lls</code>, <code>lcd</code>, etc). Files are transferred 
+from the local device to the remote device using the <code>put &lt;filename&gt;</code> command, 
+and files are transferred from the remote device to the local device using the 
+<code>get &lt;filename&gt;</code> command. The connection is terminated with the <code>exit</code> command.</p>
+<h3 id="rsync">rsync</h3>
+<p>Yet another file transfer option is <code>rsync</code>. The <code>rsync</code> tool is widely used 
+for backups and mirroring and as an improved copy command for everyday use. The 
+<code>rsync</code> command takes the form</p>
+<div class="highlight"><pre><span></span><code>$ rsync [options] &lt;source-user-id&gt;@&lt;source-host&gt;[:&lt;file-location&gt;] &lt;destination-user-id&gt;@&lt;destination-host&gt;[:&lt;file-location&gt;]
+</code></pre></div>
+<p>The <code>rsync</code> tool should only be used within an interactive compute session due to its underlying resource requirements.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../03_SubmittingJobs/" class="btn btn-neutral float-left" title="Submitting Jobs"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../05_UsingSoftware/" class="btn btn-neutral float-right" title="Using Software">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../03_SubmittingJobs/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../05_UsingSoftware/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

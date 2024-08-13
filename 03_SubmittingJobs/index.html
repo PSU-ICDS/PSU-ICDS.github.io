@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://icds-docs.readthedocs.io/en/latest/03_SubmittingJobs/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Submitting Jobs - ICDS User Guide</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Submitting Jobs";
+        var mkdocs_page_input_path = "03_SubmittingJobs.md";
+        var mkdocs_page_url = "/en/latest/03_SubmittingJobs/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]--> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="..">
+          <img src="../images/PSU_ICDS_logo_blue.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Roar Collab User Guide</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../01_Overview/">Overview</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../02_Connecting/">Connecting</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Submitting Jobs</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#running-jobs-with-slurm">Running Jobs with Slurm</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#slurm-resource-directives">Slurm Resource Directives</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#a-note-on-requesting-resources">A Note on Requesting Resources</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#interactive-jobs">Interactive Jobs</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#interactive-jobs-through-the-roar-collab-portal">Interactive Jobs Through the Roar Collab Portal</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#batch-jobs">Batch Jobs</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#using-dedicated-partitions">Using Dedicated Partitions</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#open-queue">Open Queue</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#compute-allocations">Compute Allocations</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#compute-resources-available">Compute Resources Available</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#roar-collab-compute-account-self-management">Roar Collab Compute Account Self-Management</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#modifying-allocation-coordinators">Modifying Allocation Coordinators</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#adding-and-removing-users-from-an-allocation">Adding and Removing Users from an Allocation</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#using-gpus">Using GPUs</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#job-management-and-monitoring">Job Management and Monitoring</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#converting-from-pbs-to-slurm">Converting from PBS to Slurm</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../04_HandlingData/">Handling Data</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../05_UsingSoftware/">Using Software</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">ICDS User Guide</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Submitting Jobs</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="submitting-jobs">Submitting Jobs</h1>
+<h2 id="running-jobs-with-slurm">Running Jobs with Slurm</h2>
+<p>The Roar Collab (RC) computing cluster is a shared computational resource. To 
+perform computationally-intensive tasks, users must request compute resources 
+and be provided access to those resources. The request/provision process allows 
+the tasks of many users to be scheduled and carried out efficiently to avoid 
+resource contention. <a href="https://slurm.schedmd.com">Slurm</a> (Simple Linux Utility 
+for Resource Management) is utilized by RC as the job scheduler and resource 
+manager. Slurm is an open source, fault-tolerant, and highly scalable cluster 
+management and job scheduling system for Linux clusters, and Slurm is rapidly 
+rising in popularity and many other HPC systems use Slurm as well. Its primary 
+functions are to</p>
+<ul>
+<li>Allocate access to compute resources to users for some duration of time</li>
+<li>Provide a framework for starting, executing, and monitoring work on the set of allocated compute resources</li>
+<li>Arbitrate contention for resources by managing a queue of pending work</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do not perform computationally intensive tasks on submit nodes. Submit a 
+resource request via Slurm for computational resources so your 
+computational task can be performed on a compute node.</p>
+</div>
+<h3 id="slurm-resource-directives">Slurm Resource Directives</h3>
+<p>A compute session can reached via either a batch job or an 
+interactive job. The following sections provide more details on intiating 
+compute sessions: <a href="#Batch-Jobs">Batch Jobs</a>, 
+<a href="#Interactive-Jobs">Interactive Jobs</a>, and 
+<a href="#Interactive-Jobs-Through-the-Roar-Collab-Portal">Interactive Jobs Through the RC Portal</a></p>
+<p>Resource directives are used to request specific compute resources for a 
+compute session. </p>
+<table>
+<thead>
+<tr>
+<th>Resource Directive</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-J</code> or <code>--job-name</code></td>
+<td>Specify a name for the job</td>
+</tr>
+<tr>
+<td><code>-A</code> or <code>--account</code></td>
+<td>Charge resources used by a job to specified account</td>
+</tr>
+<tr>
+<td><code>-p</code> or <code>--partition</code></td>
+<td>Request a partition for the resource allocation</td>
+</tr>
+<tr>
+<td><code>-N</code> or <code>--nodes</code></td>
+<td>Request a number of nodes</td>
+</tr>
+<tr>
+<td><code>-n</code> or <code>--ntasks</code></td>
+<td>Request a number of tasks</td>
+</tr>
+<tr>
+<td><code>--ntasks-per-node</code></td>
+<td>Request a number of tasks per allocated node</td>
+</tr>
+<tr>
+<td><code>--mem</code></td>
+<td>Specify the amount of memory required per node</td>
+</tr>
+<tr>
+<td><code>--mem-per-cpu</code></td>
+<td>Specify the amount of memory required per CPU</td>
+</tr>
+<tr>
+<td><code>-t</code> or <code>--time</code></td>
+<td>Set a limit on the total run time</td>
+</tr>
+<tr>
+<td><code>-C</code> or <code>--constraint</code></td>
+<td>Specify any required node features</td>
+</tr>
+<tr>
+<td><code>-e</code> or <code>--error</code></td>
+<td>Connect script's standard error to a non-default file</td>
+</tr>
+<tr>
+<td><code>-o</code> or <code>--output</code></td>
+<td>Connect script's standard output to a non-default file</td>
+</tr>
+<tr>
+<td><code>--requeue</code></td>
+<td>Specify that the batch job should be eligible for requeuing</td>
+</tr>
+<tr>
+<td><code>--exclusive</code></td>
+<td>Require exclusive use of nodes reserved for job</td>
+</tr>
+</tbody>
+</table>
+<p>Both standard output and standard error are directed to the same file by 
+default, and the file name is <code>slurm-%j.out</code>, where the <code>%j</code> is replaced by the 
+job ID. The output and error filenames are customizable, however, using the 
+table of symbols below.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Symbol</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><code>%j</code></td>
+<td>Job ID</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>%x</code></td>
+<td>Job name</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>%u</code></td>
+<td>Username</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>%N</code></td>
+<td>Hostname where the job is running</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>%A</code></td>
+<td>Job array's master job allocation number</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>%a</code></td>
+<td>Job array ID (index) number</td>
+</tr>
+</tbody>
+</table>
+<p>Slurm makes use of environment variables within the scope of a job, and 
+utilizing these variables can be beneficial in many cases.</p>
+<table>
+<thead>
+<tr>
+<th>Environment Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SLURM_JOB_ID</code></td>
+<td>ID of the job</td>
+</tr>
+<tr>
+<td><code>SLURM_JOB_NAME</code></td>
+<td>Name of job</td>
+</tr>
+<tr>
+<td><code>SLURM_NNODES</code></td>
+<td>Number of nodes</td>
+</tr>
+<tr>
+<td><code>SLURM_NODELIST</code></td>
+<td>List of nodes</td>
+</tr>
+<tr>
+<td><code>SLURM_NTASKS</code></td>
+<td>Total number of tasks</td>
+</tr>
+<tr>
+<td><code>SLURM_NTASKS_PER_NODE</code></td>
+<td>Number of tasks per node</td>
+</tr>
+<tr>
+<td><code>SLURM_QUEUE</code></td>
+<td>Queue (partition)</td>
+</tr>
+<tr>
+<td><code>SLURM_SUBMIT_DIR</code></td>
+<td>Directory of job submission</td>
+</tr>
+</tbody>
+</table>
+<p>Further details on the available resource directives for Slurm are defined by 
+Slurm in the documentation of the 
+<a href="https://slurm.schedmd.com/salloc.html">salloc</a> and 
+<a href="https://slurm.schedmd.com/sbatch.html">sbatch</a> commands.</p>
+<h3 id="a-note-on-requesting-resources">A Note on Requesting Resources</h3>
+<p>The resource directives should be populated with resource requests that are 
+adequate to complete the job but should be minimal enough that the job can be 
+placed somewhat quickly by the scheduler. The total time to completion of a job 
+consists of the amount of time the job is queued plus the amount of time it 
+takes the job to run to completion once placed. The queue time is minimized 
+when the bare minimum amount of resources are requested, and the queue time 
+grows as the amount of requested resources grows. The run time of the job is 
+minimized when all of the computational resources available to the job are 
+efficiently utilized. The total time to completion, therefore, is minimized 
+when the resources requested closely match the amount of computational 
+resources that can be efficiently utilized by the job. During the development 
+of the computational job, it is best to keep track of an estimate of the 
+computational resources used by the job. Add about a 20% margin on top of the 
+best estimate of the job's resource usage in order to produce a job's resource 
+requests used in the scheduler directives.</p>
+<p>It's useful to examine the amount of resources that a single laptop computer 
+has, or <strong>1 laptop-worth of resources</strong>, as a reference. A modern above-average 
+laptop, for example, may have an 8-core processor and 32 GB of RAM. If a 
+computational task can run on a laptop without crashing the device, then there 
+is absolutely no need to submit a resource request larger than this.</p>
+<h3 id="interactive-jobs">Interactive Jobs</h3>
+<p>The submit nodes of RC are designed to handle very simple tasks such as 
+connections, file editing, and submitting jobs. Performing intensive 
+computations on submit nodes will not only be computationally inefficient, but 
+it will also adversely impact other users' ability to interact with the system. 
+For this reason, users that want to perform computations interactively should 
+do so on compute nodes using the 
+<a href="https://slurm.schedmd.com/salloc.html">salloc</a> command. 
+To work interactively on a compute node with a single processor core for one 
+hour, use the following command:</p>
+<div class="highlight"><pre><span></span><code>$ salloc --nodes=1 --ntasks=1 --mem=1G --time=01:00:00
+</code></pre></div>
+<p>The above command submits a request to the scheduler to queue an interactive 
+job, and when the scheduler is able to place the request, the prompt will 
+return. The hostname in the prompt will change from the previous submit node 
+name to a compute node. Now on a compute node, intensive computational tasks 
+can be performed interactively. This session will be terminated either when the 
+time limit is reached or when the <code>exit</code> command is entered. After the 
+interactive session completes, the session will return to the previous submit 
+node.</p>
+<h3 id="interactive-jobs-through-the-roar-collab-portal">Interactive Jobs Through the Roar Collab Portal</h3>
+<p>The RC Portal is a simple graphical web interface that provides users with 
+access to RC. Users can submit and monitor jobs, manage files, and run 
+applications using just a web browser. To access the RC Portal, users must log 
+in using valid Penn State access account credentials and must also have an 
+account on RC. The <a href="https://rcportal.hpc.psu.edu">RC Portal</a> is available at 
+the following webpage: 
+<a href="https://rcportal.hpc.psu.edu">https://rcportal.hpc.psu.edu</a></p>
+<h3 id="batch-jobs">Batch Jobs</h3>
+<p>On RC, users can run jobs by submitting scripts to the Slurm job scheduler. A 
+Slurm script must do three things:</p>
+<ol>
+<li>Prescribe the resource requirements for the job</li>
+<li>Set the job's environment</li>
+<li>Specify the work to be carried out in the form of shell commands</li>
+</ol>
+<p>The portion of the job that prescribes the resource requirements contains the 
+resource directives. Resource directives in Slurm submission scripts are 
+denoted by lines starting with the <code>#SBATCH</code> keyword. The rest of the script, 
+which both sets the environment and specifies the work to be done, consists of 
+bash commands. The very first line of the submission script, <code>#!/bin/bash</code>, is 
+called a <em>shebang</em> and specifies to the command line environment to interpret 
+the commands as bash commands.</p>
+<p>Below is a sample Slurm script for running a Python task:</p>
+<div class="highlight"><pre><span></span><code>#!/bin/bash
+
+#SBATCH --job-name=apythonjob   # give the job a name
+#SBATCH --account=open          # specify the account
+#SBATCH --partition=open        # specify the partition
+#SBATCH --nodes=1               # request a node
+#SBATCH --ntasks=1              # request a task / cpu
+#SBATCH --mem=1G                # request the memory required per node
+#SBATCH --time=00:01:00         # set a limit on the total run time
+
+python pyscript.py
+</code></pre></div>
+<p>In this sample submission script, the resource directives request a single node 
+with a single <em>task</em>. Slurm is a task-based scheduler, and a task is equivalent 
+to a processor core unless otherwise specified in the submission script. The 
+scheduler directives then request 1 GB of memory per node for a maximum of 1 
+minute of runtime. The memory can be specified in KB, MB, GB, or TB by using a 
+suffix of K, M, G, or T, respectively. If no suffix is used, the default is MB. 
+Lastly, the work to be done is specified, which is the execution of a Python 
+script in this case.</p>
+<p>If the above sample submission script was saved as <code>pyjob.slurm</code>, it would be 
+submitted to the Slurm scheduler with the 
+<a href="https://slurm.schedmd.com/sbatch.html">sbatch</a> command.</p>
+<div class="highlight"><pre><span></span><code>$ sbatch pyjob.slurm
+</code></pre></div>
+<p>The job can be submitted to the scheduler from any node on RC. The scheduler 
+will keep the job in the job queue until the job gains sufficient priority to 
+run on a compute node. Depending on the nature of the job and the availability 
+of computational resources, the queue time will vary between seconds to days. 
+To check the status of queued and running jobs, use the 
+<a href="https://slurm.schedmd.com/squeue.html">squeue</a> command:</p>
+<div class="highlight"><pre><span></span><code>$ squeue -u &lt;userid&gt;
+</code></pre></div>
+<h2 id="using-dedicated-partitions">Using Dedicated Partitions</h2>
+<h3 id="open-queue">Open Queue</h3>
+<p>All RC users have access to the <strong>open</strong> queue, which allows users to submit 
+jobs free of charge. The <strong>open</strong> queue has a maximum time request limit of 48 
+hours and also has several other resource limits per user. The per-user 
+resource limits for the <strong>open</strong> queue can be displayed with the following 
+command:</p>
+<div class="highlight"><pre><span></span><code>$ sacctmgr show qos open format=name%10,maxtrespu%40
+</code></pre></div>
+<p>Jobs on the <code>open</code> queue will start and run only when sufficient idle compute 
+resources are available. For this reason, there is no guarantee on when an 
+<code>open</code> queue job will start. All users have equal priority on the <code>open</code> 
+queue, but <code>open</code> queue jobs have a lower priority than jobs submitted to a 
+paid compute allocation. If compute resources are required for higher priority 
+jobs, then an <code>open</code> queue job may be cancelled so that the higher priority 
+job can be placed. The cancellation of a running job to free resources for a 
+higher priority job is called preemption. By using the <code>--requeue</code> option in a 
+submission script, a job will re-enter the job queue automatically in the event 
+that it is preempted. Furthermore, it is highly recommended for users to break 
+down any large computational workflows into smaller, more manageable 
+computational units so jobs can save state throughout the stages of the 
+workflow. Saving state at set checkpoints will allow the computational workflow 
+to return to the latest checkpoint, reducing the amount of required re-
+computation in the case that a job is interrupted for any reason. RC has 
+somewhat low utilization, however, so the vast majority of <code>open</code> queue jobs 
+can be submitted and placed in a resonable amount of time. The <code>open</code> queue 
+is entirely adequate for most individual users and for many use cases.</p>
+<h3 id="compute-allocations">Compute Allocations</h3>
+<p>A paid compute allocation provides access to specific compute resources for an 
+individual user or for a group of users. A paid compute allocation provides the 
+following benefits:</p>
+<ul>
+<li>Guaranteed job start time within one hour</li>
+<li>No job preemption for non-burst jobs</li>
+<li>Burst capability up to 4x of the allocation's compute resources</li>
+</ul>
+<p>A compute allocation results in the creation of a compute account on RC. The 
+<code>mybalance</code> command on RC lists accessible compute accounts and resource 
+information associated with those compute accounts. Use the <code>mybalance -h</code> 
+option for additional command usage information.</p>
+<p>To submit a job to a paid compute account, supply the <code>-A</code> or <code>--account</code> resource directive with the compute account name and supply the <code>-p</code> or <code>--partition</code> resource directive with <code>sla-prio</code>:</p>
+<div class="highlight"><pre><span></span><code>#SBATCH -A &lt;compute_account&gt;
+#SBATCH -p sla-prio
+</code></pre></div>
+<p>To enable bursting, if enabled for the compute account, supply the <code>-p</code> or 
+<code>--partition</code> resource directive with the desired level of bursting for the job 
+(<code>burst2x</code>, <code>burst3x</code>, <code>burst4x</code>, and so on). To list the available compute 
+accounts and the associated available burst partitions, use the following 
+command:</p>
+<div class="highlight"><pre><span></span><code>$ sacctmgr show User $(whoami) --associations format=account%30,qos%40
+</code></pre></div>
+<h4 id="compute-resources-available">Compute Resources Available</h4>
+<p>A paid compute allocation will typically cover a certain number of cores across 
+a certain timeframe. The resources associated with a compute allocation are in 
+units of <strong>core-hours</strong>. The compute allocation has an associated <strong>Limit</strong> in 
+<strong>core-hours</strong> based on the initial compute allocation agreement. Any amount of 
+compute resources used on the compute allocation results in an accrual of the 
+compute allocation's <strong>Usage</strong>, again in <strong>core-hours</strong>. The compute 
+allocation's <strong>Balance</strong> is simply the <strong>Limit</strong> minus its <strong>Usage</strong>.</p>
+<div class="highlight"><pre><span></span><code>Balance [core-hours] = Limit [core-hours] - Usage [core-hours]
+</code></pre></div>
+<p>At the start of the compute allocation, 60 days-worth of compute resources are 
+added to the compute allocation's <strong>Limit</strong>. Each day thereafter, 1 day-worth 
+of compute resources are added to the <strong>Limit</strong>.</p>
+<div class="highlight"><pre><span></span><code>Initial Resources   [core-hours] = # cores * 24 hours/day * 60 days
+Daily Replenishment [core-hours] = # cores * 24 hours/day
+</code></pre></div>
+<p>The daily replenishment scheme continues on schedule for the life of the 
+compute allocation. Near the very end of the compute allocation, the 
+replenishment schedule may be impacted by the enforced limit on the maximum 
+allowable <strong>Balance</strong>. The <strong>Balance</strong> for a compute allocation cannot exceed 
+the amount of compute resources for a window of 91 days and cannot exceed the 
+amount usable by a 4x burst for the remaining life of the compute allocation. 
+This limit is only relevant for the replenishment schedule nearing the very end 
+of the compute allocation life.</p>
+<div class="highlight"><pre><span></span><code>Max Allowable Balance [core-hours] = min( WindowMaxBalance, 4xBurstMaxBalance )
+
+where
+
+WindowMaxBalance  [core-hours] = # cores * 24 hours/day * 91 days
+4xBurstMaxBalance [core-hours] = # cores * 24 hours/day * # days remaining * 4 burst factor
+</code></pre></div>
+<h3 id="roar-collab-compute-account-self-management">Roar Collab Compute Account Self-Management</h3>
+<h4 id="modifying-allocation-coordinators">Modifying Allocation Coordinators</h4>
+<p>The principal contact for a compute allocation is automatically designated as a 
+coordinator for the compute account associated with the compute allocation. A 
+coordinator can add or remove another coordinator with the following command:</p>
+<div class="highlight"><pre><span></span><code>$ sacctmgr add coordinator account=&lt;compute-account&gt; name=&lt;userid&gt;
+$ sacctmgr remove coordinator account=&lt;compute-account&gt; name=&lt;userid&gt;
+</code></pre></div>
+<h4 id="adding-and-removing-users-from-an-allocation">Adding and Removing Users from an Allocation</h4>
+<p>A coordinator can then add and remove users from the compute account using the 
+following:</p>
+<div class="highlight"><pre><span></span><code>$ sacctmgr add user account=&lt;compute-account&gt; name=&lt;userid&gt;
+$ sacctmgr remove user account=&lt;compute-account&gt; name=&lt;userid&gt;
+</code></pre></div>
+<h2 id="using-gpus">Using GPUs</h2>
+<p>GPUs are available on RC to users that are added to paid GPU compute accounts. 
+To use GPUs, add the <code>--gpus</code> resource directive:</p>
+<div class="highlight"><pre><span></span><code>#!/bin/bash
+
+#SBATCH --job-name=apythonjob   # give the job a name
+#SBATCH --account=&lt;gpu_acct&gt;    # specify the account
+#SBATCH --partition=sla-prio    # specify the partition
+#SBATCH --nodes=1               # request a node
+#SBATCH --ntasks=1              # request a task / cpu
+#SBATCH --mem=1G                # request the memory required per node
+#SBATCH --gpus=1                # request a gpu
+#SBATCH --time=00:01:00         # set a limit on the total run time
+
+python pyscript.py
+</code></pre></div>
+<p>Requesting GPU resources for a job is only beneficial if the software running 
+within the job is GPU-enabled.</p>
+<h2 id="job-management-and-monitoring">Job Management and Monitoring</h2>
+<p>A user can find the job ID, the assigned node(s), and other useful information 
+using the <code>squeue</code> command. Specifically, the following command displays all 
+running and queued jobs for a specific user:</p>
+<div class="highlight"><pre><span></span><code>$ squeue -u &lt;user&gt;
+</code></pre></div>
+<p>A useful environment variable is the <code>SQUEUE_FORMAT</code> variable which enables 
+customization of the details shown by the <code>squeue</code> command. This variable can 
+be set, for example, with the following command to provide a highly descriptive 
+<code>squeue</code> output:</p>
+<div class="highlight"><pre><span></span><code>$ export SQUEUE_FORMAT=&quot;%.9i %9P %35j %.8u %.2t %.12M %.12L %.5C %.7m %.4D %R&quot;
+</code></pre></div>
+<p>Further details on the usage of this variable are available on Slurm's 
+<a href="https://slurm.schedmd.com/squeue.html">squeue</a> documentation page. Another 
+useful job monitoring command is:</p>
+<div class="highlight"><pre><span></span><code>$ scontrol show job &lt;jobid&gt;
+</code></pre></div>
+<p>Also, a job can be cancelled with
+<div class="highlight"><pre><span></span><code>$ scancel &lt;jobid&gt;
+</code></pre></div></p>
+<p>Valuable information can be obtained by monitoring a job on the compute node(s) 
+as the job runs. Connect to the compute node of a running job with the <code>ssh</code> 
+command. Note that a compute node can only be reached if the user has a 
+resource reservation on that specific node. After connecting to the compute 
+node, the <code>top</code> and <code>ps</code> commands are useful tools.</p>
+<div class="highlight"><pre><span></span><code>$ ssh &lt;comp-node-id&gt;
+$ top -Hu &lt;user&gt;
+$ ps -aux | grep &lt;user&gt;
+</code></pre></div>
+<h2 id="converting-from-pbs-to-slurm">Converting from PBS to Slurm</h2>
+<p>Slurm's commands and scheduler directives can be mapped to and from PBS/Torque 
+commands and scheduler directives. To convert any PBS/Torque scripts and/or 
+workflows to Slurm, the commands and scheduler directives should be swapped out 
+and reconfigured. See the table below for the mapping of some common commands 
+and scheduler directives:</p>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>PBS/Torque Command</th>
+<th>Slurm Command</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Submit a batch job</td>
+<td><code>qsub</code></td>
+<td><code>sbatch</code></td>
+</tr>
+<tr>
+<td>Request an interactive job</td>
+<td><code>qsub -I</code></td>
+<td><code>salloc</code></td>
+</tr>
+<tr>
+<td>Cancel a job</td>
+<td><code>qdel</code></td>
+<td><code>scancel</code></td>
+</tr>
+<tr>
+<td>Check job status</td>
+<td><code>qstat</code></td>
+<td><code>squeue</code></td>
+</tr>
+<tr>
+<td>Check job status for specific user</td>
+<td><code>qstat -u &lt;user&gt;</code></td>
+<td><code>squeue -u &lt;user&gt;</code></td>
+</tr>
+<tr>
+<td>Hold a job</td>
+<td><code>qhold</code></td>
+<td><code>scontrol hold</code></td>
+</tr>
+<tr>
+<td>Release a job</td>
+<td><code>qrls</code></td>
+<td><code>scontrol release</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Resource Request</th>
+<th>PBS/Torque Directive</th>
+<th>Slurm Directive</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Directive designator</td>
+<td><code>#PBS</code></td>
+<td><code>#SBATCH</code></td>
+</tr>
+<tr>
+<td>Number of nodes</td>
+<td><code>-l nodes</code></td>
+<td><code>-N</code> or <code>--nodes</code></td>
+</tr>
+<tr>
+<td>Number of CPUs</td>
+<td><code>-l ppn</code></td>
+<td><code>-n</code> or <code>--ntasks</code></td>
+</tr>
+<tr>
+<td>Amount of memory</td>
+<td><code>-l mem</code></td>
+<td><code>--mem</code> or <code>--mem-per-cpu</code></td>
+</tr>
+<tr>
+<td>Walltime</td>
+<td><code>-l walltime</code></td>
+<td><code>-t</code> or <code>--time</code></td>
+</tr>
+<tr>
+<td>Compute account</td>
+<td><code>-A</code></td>
+<td><code>-A</code> or <code>--account</code></td>
+</tr>
+</tbody>
+</table>
+<p>For a more complete list of command, scheduler directive, and option 
+comparisons, see the 
+<a href="https://slurm.schedmd.com/rosetta.pdf">Slurm Rosetta Stone</a>.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../02_Connecting/" class="btn btn-neutral float-left" title="Connecting"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../04_HandlingData/" class="btn btn-neutral float-right" title="Handling Data">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../02_Connecting/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../04_HandlingData/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
